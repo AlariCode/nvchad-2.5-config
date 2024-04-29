@@ -1,12 +1,16 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    event = 'BufWritePre', -- uncomment for format on save
     config = function()
       require "configs.conform"
     end,
   },
-
+  {
+    "stevearc/dressing.nvim",
+    lazy = false,
+    opts = {},
+  },
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -14,29 +18,38 @@ return {
       require "configs.lspconfig"
     end,
   },
-{ "nvim-neotest/nvim-nio" },
+  { "nvim-neotest/nvim-nio" },
   {
-  	"williamboman/mason.nvim",
-  	opts = {
-  		ensure_installed = {
-  			"lua-language-server", "stylua",
-  			"html-lsp", "css-lsp" , "prettier",
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "lua-language-server",
+        "stylua",
+        "html-lsp",
+        "css-lsp",
+        "prettier",
         "eslint-lsp",
         "gopls",
         "js-debug-adapter",
         "typescript-language-server",
-  		},
-  	},
+      },
+    },
   },
 
   {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc",
-       "html", "css", "typescript", "javascript", "go"
-  		},
-  	},
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+        "typescript",
+        "javascript",
+        "go",
+      },
+    },
   },
   {
     "mfussenegger/nvim-lint",
@@ -51,19 +64,19 @@ return {
       require "configs.lspconfig"
     end,
   },
-  {
-    "mhartington/formatter.nvim",
-    event = "VeryLazy",
-    opts = function()
-      return require "configs.formatter"
-    end,
-  },
+  -- {
+  --   "mhartington/formatter.nvim",
+  --   event = "VeryLazy",
+  --   opts = function()
+  --     return require "configs.formatter"
+  --   end,
+  -- },
   -- Install a plugin
   {
     "windwp/nvim-ts-autotag",
     event = "VeryLazy",
     config = function()
-      require('nvim-ts-autotag').setup()
+      require("nvim-ts-autotag").setup()
     end,
   },
   {
@@ -184,6 +197,7 @@ return {
   },
   {
     "folke/trouble.nvim",
+    lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   {
