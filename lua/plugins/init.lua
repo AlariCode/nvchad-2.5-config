@@ -1,10 +1,21 @@
 return {
   {
     "stevearc/conform.nvim",
-    event = 'BufWritePre', -- uncomment for format on save
+    event = "BufWritePre",
     config = function()
       require "configs.conform"
     end,
+  },
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateDown",
+      "TmuxNavigateUp",
+      "TmuxNavigateRight",
+      "TmuxNavigatePrevious",
+    },
   },
   {
     "stevearc/dressing.nvim",
@@ -64,14 +75,6 @@ return {
       require "configs.lspconfig"
     end,
   },
-  -- {
-  --   "mhartington/formatter.nvim",
-  --   event = "VeryLazy",
-  --   opts = function()
-  --     return require "configs.formatter"
-  --   end,
-  -- },
-  -- Install a plugin
   {
     "windwp/nvim-ts-autotag",
     event = "VeryLazy",
