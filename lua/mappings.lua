@@ -4,6 +4,9 @@ local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "<leader>w", "<cmd>w<CR>", { desc = "Save" })
+map("n", "<leader>cx", function()
+  require("nvchad.tabufline").closeAllBufs()
+end, { desc = "Close All Buffers" })
 
 map("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Find Todo" })
 map("n", "\\", "<cmd>:vsplit <CR>", { desc = "Vertical Split" })
