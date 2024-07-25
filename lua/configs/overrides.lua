@@ -13,6 +13,7 @@ M.treesitter = {
     "markdown",
     "markdown_inline",
     "prisma",
+    "vue",
     "go",
   },
   indent = {

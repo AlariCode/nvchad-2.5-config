@@ -1,4 +1,4 @@
-local configs = require("nvchad.configs.lspconfig")
+local configs = require "nvchad.configs.lspconfig"
 
 local on_attach = configs.on_attach
 local on_init = configs.on_init
@@ -33,9 +33,18 @@ for _, lsp in ipairs(servers) do
         usePlaceholders = true,
         analyses = {
           unusedparams = true,
-        }
-      }
-    }
+        },
+      },
+    },
   }
   lspconfig.prismals.setup {}
+  lspconfig.volar.setup {
+    on_attach = on_attach,
+    filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+    init_options = {
+      vue = {
+        hybridMode = false,
+      },
+    },
+  }
 end
